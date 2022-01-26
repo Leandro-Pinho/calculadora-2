@@ -28,17 +28,30 @@ export default function App() {
         setCurrentNumber((fistNumber * lastNumber).toString())
         return
       case '/': 
+      if ( lastNumber != 0 ) 
+      {
         setCurrentNumber((fistNumber / lastNumber).toString())
+      } else {
+        setCurrentNumber((0).toString())
+      }
         return
       case '%':
         setCurrentNumber(((fistNumber / 100) * lastNumber).toString())
         return
+      case '+/-':
+        if ( fistNumber > 0 )
+        {
+          setCurrentNumber((fistNumber * -1).toString())
+        } else {
+          setCurrentNumber((fistNumber * -1).toString())
+        }
+      return
     }
   }
 
   function handleInput(buttonPressed){
     console.log(buttonPressed) // Mostra no Console a tecla pressionada
-    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" | buttonPressed === "%"){
+    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" | buttonPressed === "%" | buttonPressed === "+/-" ){
       setCurrentNumber(currentNumber + " " + buttonPressed + " ")
       return
     }
